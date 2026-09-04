@@ -193,9 +193,7 @@
 </head>
 <body>
     
-    <!-- Background Video Canvas -->
-    <canvas id="hero-canvas"></canvas>
-    <div class="overlay"></div>
+    
 
     <!-- Main Content -->
     <main>
@@ -220,20 +218,52 @@
             <a href="#"><i class="ph ph-twitter-logo"></i></a>
             <a href="https://wa.me/918799036132" target="_blank" title="WhatsApp Me"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
-<!-- Hero Section -->
-        <section id="home" class="hero container">
-            <div class="hero-content">
-                <span class="hero-tag">Creative Developer</span>
-                <h1>BRIZ<br><span class="outline">PATEL</span></h1>
-                <h2>I Build Digital <span class="text-primary">Experiences</span></h2>
-                <p>Clean code. Bold design. Seamless performance.<br>I turn ideas into powerful web experiences for brands and startups bringing their ideas to life.</p>
-                <div class="hero-btns">
-                    <a href="projects.html" class="btn btn-primary">View My Work <i class="ph ph-arrow-right"></i></a>
-                    <a href="contact.html" class="btn btn-outline">Let's Work Together</a>
+<br><br><br><br>
+<!-- About Section (Glass Panel) -->
+        <section id="about" class="glass-panel">
+            <div class="container about-grid">
+                <div class="about-text">
+                    <div class="section-header">
+                        <h4>About Me</h4>
+                        <h2>I'm <span class="text-primary">Briz Patel</span></h2>
+                    </div>
+                    <p>I'm a creative developer who loves crafting fast, accessible, and visually striking websites and applications. With a strong focus on clean code and user experience, I help brands and startups bring their ideas to life.</p>
+                    <a href="#" class="btn btn-outline"><i class="ph ph-download-simple"></i> Download Resume</a>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="ph ph-code skill-icon"></i>
+                        <div class="skill-info">
+                            <h5>Clean Code</h5>
+                            <p>Semantic, scalable, and maintainable code.</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="ph ph-rocket skill-icon"></i>
+                        <div class="skill-info">
+                            <h5>Performance</h5>
+                            <p>Optimized for speed and efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="ph ph-device-mobile skill-icon"></i>
+                        <div class="skill-info">
+                            <h5>Responsive</h5>
+                            <p>Pixel-perfect across all devices.</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="ph ph-users skill-icon"></i>
+                        <div class="skill-info">
+                            <h5>User Focused</h5>
+                            <p>Designing with empathy and purpose.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+<!-- Footer -->
 <!-- Footer -->
         <footer>
             <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
@@ -244,60 +274,7 @@
     </main>
 
     <script>
-        const canvas = document.getElementById("hero-canvas");
-        const context = canvas.getContext("2d");
-
-        const frameCount = 240;
-        
-        // The frames are named frame_0001.jpg through frame_0240.jpg
-        const currentFrame = index => (
-            `video_frames_24fps/frame_${index.toString().padStart(4, '0')}.jpg`
-        );
-
-        // Preload all images to prevent flickering
-        const images = [];
-        let loadedCount = 0;
-        for (let i = 1; i <= frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            img.onload = () => {
-                loadedCount++;
-                // Wait for the first image to load to set the initial canvas dimensions and draw it
-                if(i === 1) {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    context.drawImage(img, 0, 0);
-                }
-            };
-            images.push(img);
-        }
-
-        let lastFrameIndex = 0;
-
-        // Autoplay loop
-        let currentFrameIndex = 0;
-        function playAnimation() {
-            if (images[currentFrameIndex] && images[currentFrameIndex].complete) {
-                context.drawImage(images[currentFrameIndex], 0, 0);
-            }
-            currentFrameIndex = (currentFrameIndex + 1) % frameCount;
-            setTimeout(() => {
-                requestAnimationFrame(playAnimation);
-            }, 1000 / 24); // 24 FPS
-        }
-        
-        // Start playing once first image is loaded
-        const firstImg = images[0];
-        if(firstImg) {
-            firstImg.addEventListener('load', () => {
-                playAnimation();
-            });
-        } else {
-            setTimeout(playAnimation, 1000);
-        }
-
-
-        // Project Filtering Logic
+// Project Filtering Logic
         const techItems = document.querySelectorAll('.tech-item');
         const projectCards = document.querySelectorAll('.project-card');
 

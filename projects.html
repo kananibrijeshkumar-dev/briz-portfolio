@@ -193,9 +193,7 @@
 </head>
 <body>
     
-    <!-- Background Video Canvas -->
-    <canvas id="hero-canvas"></canvas>
-    <div class="overlay"></div>
+    
 
     <!-- Main Content -->
     <main>
@@ -220,20 +218,86 @@
             <a href="#"><i class="ph ph-twitter-logo"></i></a>
             <a href="https://wa.me/918799036132" target="_blank" title="WhatsApp Me"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
-<!-- Hero Section -->
-        <section id="home" class="hero container">
-            <div class="hero-content">
-                <span class="hero-tag">Creative Developer</span>
-                <h1>BRIZ<br><span class="outline">PATEL</span></h1>
-                <h2>I Build Digital <span class="text-primary">Experiences</span></h2>
-                <p>Clean code. Bold design. Seamless performance.<br>I turn ideas into powerful web experiences for brands and startups bringing their ideas to life.</p>
-                <div class="hero-btns">
-                    <a href="projects.html" class="btn btn-primary">View My Work <i class="ph ph-arrow-right"></i></a>
-                    <a href="contact.html" class="btn btn-outline">Let's Work Together</a>
+<br><br><br><br>
+<!-- Projects Section -->
+        <section id="projects" class="container">
+            <div class="projects-header-wrapper">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <h4>Projects</h4>
+                    <h2>Featured Projects</h2>
+                </div>
+                <a href="#" class="btn btn-outline">View All Projects</a>
+            </div>
+            <div class="projects-grid" id="projects-container">
+                <div class="project-card" data-tech="react node tailwind js ai">
+                    <img src="https://api.microlink.io/?url=https://jayambefoodmachinery.com/&screenshot=true&meta=false&embed=screenshot.url" alt="Jay Ambe Food Machinery" class="project-img">
+                    <div class="project-info">
+                        <div>
+                            <h3>Jay Ambe Food Machinery</h3>
+                            <p>Full-scale industrial e-commerce platform featuring a live Razorpay payment gateway and dynamic product catalogs.</p>
+                            <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap; font-size:0.75rem; color:var(--primary);">
+                                <span>#React</span><span>#Node.js</span><span>#Razorpay</span>
+                            </div>
+                        </div>
+                        <a href="https://jayambefoodmachinery.com" target="_blank" class="project-link">View Live Site <i class="ph ph-arrow-up-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card" data-tech="react tailwind js python">
+                    <img src="https://api.microlink.io/?url=https://mnp-holydays.vercel.app/&screenshot=true&meta=false&embed=screenshot.url" alt="MNP Holidays" class="project-img">
+                    <div class="project-info">
+                        <div>
+                            <h3>MNP Holidays</h3>
+                            <p>Interactive travel booking and holiday package platform designed for high conversion and seamless user experience. <br><a href="https://mnp-holydays.vercel.app/" target="_blank" style="color:var(--text-muted); font-size:0.8rem;">mnp-holydays.vercel.app</a></p>
+                            <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap; font-size:0.75rem; color:var(--primary);">
+                                <span>#React</span><span>#Tailwind</span><span>#Next.js</span>
+                            </div>
+                        </div>
+                        <a href="https://mnp-holydays.vercel.app/" target="_blank" class="project-link">View Live Site <i class="ph ph-arrow-up-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card" data-tech="react js node">
+                    <img src="https://api.microlink.io/?url=https://valve-demo.vercel.app/&screenshot=true&meta=false&embed=screenshot.url" alt="DM Valve" class="project-img">
+                    <div class="project-info">
+                        <div>
+                            <h3>DM Valve</h3>
+                            <p>Professional corporate web presence for an industrial valve manufacturer featuring high-performance animations and B2B workflows. <br><a href="https://valve-demo.vercel.app/" target="_blank" style="color:var(--text-muted); font-size:0.8rem;">valve-demo.vercel.app</a></p>
+                            <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap; font-size:0.75rem; color:var(--primary);">
+                                <span>#JavaScript</span><span>#React</span><span>#Node</span>
+                            </div>
+                        </div>
+                        <a href="https://valve-demo.vercel.app/" target="_blank" class="project-link">View Live Site <i class="ph ph-arrow-up-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card" data-tech="react tailwind js ai">
+                    <img src="https://api.microlink.io/?url=https://shringar-bridal-studio.vercel.app/&screenshot=true&meta=false&embed=screenshot.url" alt="Shringar Bridal Studio" class="project-img">
+                    <div class="project-info">
+                        <div>
+                            <h3>Shringar Bridal Studio</h3>
+                            <p>Elegant and visually stunning portfolio website for a premium bridal studio, optimized for image performance and bookings. <br><a href="https://shringar-bridal-studio.vercel.app/" target="_blank" style="color:var(--text-muted); font-size:0.8rem;">shringar-bridal-studio.vercel.app</a></p>
+                            <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap; font-size:0.75rem; color:var(--primary);">
+                                <span>#Tailwind</span><span>#React</span><span>#UI/UX</span>
+                            </div>
+                        </div>
+                        <a href="https://shringar-bridal-studio.vercel.app/" target="_blank" class="project-link">View Live Site <i class="ph ph-arrow-up-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card" data-tech="video">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop" alt="Video Editing Reel" class="project-img">
+                    <div class="project-info">
+                        <div>
+                            <h3>Video Editing Reel</h3>
+                            <p>Professional video editing for social media campaigns, including dynamic motion graphics, color grading, and sound design.</p>
+                            <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap; font-size:0.75rem; color:var(--primary);">
+                                <span>#PremierePro</span><span>#AfterEffects</span><span>#Video</span>
+                            </div>
+                        </div>
+                        <a href="#" class="project-link">Watch Reel <i class="ph ph-play-circle"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
 
+<!-- Footer -->
 <!-- Footer -->
         <footer>
             <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
@@ -244,60 +308,7 @@
     </main>
 
     <script>
-        const canvas = document.getElementById("hero-canvas");
-        const context = canvas.getContext("2d");
-
-        const frameCount = 240;
-        
-        // The frames are named frame_0001.jpg through frame_0240.jpg
-        const currentFrame = index => (
-            `video_frames_24fps/frame_${index.toString().padStart(4, '0')}.jpg`
-        );
-
-        // Preload all images to prevent flickering
-        const images = [];
-        let loadedCount = 0;
-        for (let i = 1; i <= frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            img.onload = () => {
-                loadedCount++;
-                // Wait for the first image to load to set the initial canvas dimensions and draw it
-                if(i === 1) {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    context.drawImage(img, 0, 0);
-                }
-            };
-            images.push(img);
-        }
-
-        let lastFrameIndex = 0;
-
-        // Autoplay loop
-        let currentFrameIndex = 0;
-        function playAnimation() {
-            if (images[currentFrameIndex] && images[currentFrameIndex].complete) {
-                context.drawImage(images[currentFrameIndex], 0, 0);
-            }
-            currentFrameIndex = (currentFrameIndex + 1) % frameCount;
-            setTimeout(() => {
-                requestAnimationFrame(playAnimation);
-            }, 1000 / 24); // 24 FPS
-        }
-        
-        // Start playing once first image is loaded
-        const firstImg = images[0];
-        if(firstImg) {
-            firstImg.addEventListener('load', () => {
-                playAnimation();
-            });
-        } else {
-            setTimeout(playAnimation, 1000);
-        }
-
-
-        // Project Filtering Logic
+// Project Filtering Logic
         const techItems = document.querySelectorAll('.tech-item');
         const projectCards = document.querySelectorAll('.project-card');
 

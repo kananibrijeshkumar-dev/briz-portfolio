@@ -193,9 +193,7 @@
 </head>
 <body>
     
-    <!-- Background Video Canvas -->
-    <canvas id="hero-canvas"></canvas>
-    <div class="overlay"></div>
+    
 
     <!-- Main Content -->
     <main>
@@ -220,20 +218,43 @@
             <a href="#"><i class="ph ph-twitter-logo"></i></a>
             <a href="https://wa.me/918799036132" target="_blank" title="WhatsApp Me"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
-<!-- Hero Section -->
-        <section id="home" class="hero container">
-            <div class="hero-content">
-                <span class="hero-tag">Creative Developer</span>
-                <h1>BRIZ<br><span class="outline">PATEL</span></h1>
-                <h2>I Build Digital <span class="text-primary">Experiences</span></h2>
-                <p>Clean code. Bold design. Seamless performance.<br>I turn ideas into powerful web experiences for brands and startups bringing their ideas to life.</p>
-                <div class="hero-btns">
-                    <a href="projects.html" class="btn btn-primary">View My Work <i class="ph ph-arrow-right"></i></a>
-                    <a href="contact.html" class="btn btn-outline">Let's Work Together</a>
+<br><br><br><br>
+<!-- Services Section (Transparent to show more video) -->
+        <section id="services" class="container">
+            <div class="section-header text-center" style="text-align: center;">
+                <h4>Services</h4>
+                <h2>What I Do</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="ph ph-browser"></i>
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications built with modern technologies.</p>
+                </div>
+                <div class="service-card">
+                    <i class="ph ph-pen-nib"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful, intuitive designs that elevate user experience and drive results.</p>
+                </div>
+                <div class="service-card">
+                    <i class="ph ph-shopping-cart"></i>
+                    <h3>E-Commerce</h3>
+                    <p>High-performing online stores that convert visitors into loyal customers.</p>
+                </div>
+                <div class="service-card">
+                    <i class="ph ph-chart-line-up"></i>
+                    <h3>SEO & Performance</h3>
+                    <p>Optimize your site to rank higher and load faster for better results.</p>
+                </div>
+                <div class="service-card">
+                    <i class="ph ph-video"></i>
+                    <h3>Video Editing</h3>
+                    <p>Professional video editing and post-production for commercials, social media, and reels.</p>
                 </div>
             </div>
         </section>
 
+<!-- Footer -->
 <!-- Footer -->
         <footer>
             <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
@@ -244,60 +265,7 @@
     </main>
 
     <script>
-        const canvas = document.getElementById("hero-canvas");
-        const context = canvas.getContext("2d");
-
-        const frameCount = 240;
-        
-        // The frames are named frame_0001.jpg through frame_0240.jpg
-        const currentFrame = index => (
-            `video_frames_24fps/frame_${index.toString().padStart(4, '0')}.jpg`
-        );
-
-        // Preload all images to prevent flickering
-        const images = [];
-        let loadedCount = 0;
-        for (let i = 1; i <= frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            img.onload = () => {
-                loadedCount++;
-                // Wait for the first image to load to set the initial canvas dimensions and draw it
-                if(i === 1) {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    context.drawImage(img, 0, 0);
-                }
-            };
-            images.push(img);
-        }
-
-        let lastFrameIndex = 0;
-
-        // Autoplay loop
-        let currentFrameIndex = 0;
-        function playAnimation() {
-            if (images[currentFrameIndex] && images[currentFrameIndex].complete) {
-                context.drawImage(images[currentFrameIndex], 0, 0);
-            }
-            currentFrameIndex = (currentFrameIndex + 1) % frameCount;
-            setTimeout(() => {
-                requestAnimationFrame(playAnimation);
-            }, 1000 / 24); // 24 FPS
-        }
-        
-        // Start playing once first image is loaded
-        const firstImg = images[0];
-        if(firstImg) {
-            firstImg.addEventListener('load', () => {
-                playAnimation();
-            });
-        } else {
-            setTimeout(playAnimation, 1000);
-        }
-
-
-        // Project Filtering Logic
+// Project Filtering Logic
         const techItems = document.querySelectorAll('.tech-item');
         const projectCards = document.querySelectorAll('.project-card');
 

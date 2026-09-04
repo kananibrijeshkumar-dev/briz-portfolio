@@ -193,9 +193,7 @@
 </head>
 <body>
     
-    <!-- Background Video Canvas -->
-    <canvas id="hero-canvas"></canvas>
-    <div class="overlay"></div>
+    
 
     <!-- Main Content -->
     <main>
@@ -220,20 +218,60 @@
             <a href="#"><i class="ph ph-twitter-logo"></i></a>
             <a href="https://wa.me/918799036132" target="_blank" title="WhatsApp Me"><i class="ph ph-whatsapp-logo"></i></a>
         </div>
-<!-- Hero Section -->
-        <section id="home" class="hero container">
-            <div class="hero-content">
-                <span class="hero-tag">Creative Developer</span>
-                <h1>BRIZ<br><span class="outline">PATEL</span></h1>
-                <h2>I Build Digital <span class="text-primary">Experiences</span></h2>
-                <p>Clean code. Bold design. Seamless performance.<br>I turn ideas into powerful web experiences for brands and startups bringing their ideas to life.</p>
-                <div class="hero-btns">
-                    <a href="projects.html" class="btn btn-primary">View My Work <i class="ph ph-arrow-right"></i></a>
-                    <a href="contact.html" class="btn btn-outline">Let's Work Together</a>
+<br><br><br><br>
+<!-- Contact Section -->
+        <section id="contact" class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-header" style="margin-bottom: 1.5rem;">
+                        <h4>Let's Connect</h4>
+                        <h2>Let's Build Something <span class="text-primary">Amazing</span></h2>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.6;">Have a project in mind or just want to say hi?<br>I'd love to hear from you.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ph ph-envelope-simple"></i></div>
+                        <div class="contact-text">
+                            <h5>Email</h5>
+                            <p><a href="mailto:hello@brizpatel.online" style="color:var(--text-muted); text-decoration:none;">hello@brizpatel.online</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ph ph-phone"></i></div>
+                        <div class="contact-text">
+                            <h5>Phone</h5>
+                            <p><a href="tel:+918799036132" style="color:var(--text-muted); text-decoration:none;">+91 8799036132</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ph ph-whatsapp-logo"></i></div>
+                        <div class="contact-text">
+                            <h5>WhatsApp</h5>
+                            <p><a href="https://wa.me/918799036132" target="_blank" style="color:var(--text-muted); text-decoration:none;">+91 8799036132</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="ph ph-map-pin"></i></div>
+                        <div class="contact-text">
+                            <h5>Location</h5>
+                            <p>India</p>
+                        </div>
+                    </div>
                 </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn btn-primary" style="align-self: flex-start; margin-top: 1rem;">Send Message <i class="ph ph-paper-plane-tilt"></i></button>
+                </form>
             </div>
         </section>
 
+<!-- Footer -->
 <!-- Footer -->
         <footer>
             <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
@@ -244,60 +282,7 @@
     </main>
 
     <script>
-        const canvas = document.getElementById("hero-canvas");
-        const context = canvas.getContext("2d");
-
-        const frameCount = 240;
-        
-        // The frames are named frame_0001.jpg through frame_0240.jpg
-        const currentFrame = index => (
-            `video_frames_24fps/frame_${index.toString().padStart(4, '0')}.jpg`
-        );
-
-        // Preload all images to prevent flickering
-        const images = [];
-        let loadedCount = 0;
-        for (let i = 1; i <= frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            img.onload = () => {
-                loadedCount++;
-                // Wait for the first image to load to set the initial canvas dimensions and draw it
-                if(i === 1) {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    context.drawImage(img, 0, 0);
-                }
-            };
-            images.push(img);
-        }
-
-        let lastFrameIndex = 0;
-
-        // Autoplay loop
-        let currentFrameIndex = 0;
-        function playAnimation() {
-            if (images[currentFrameIndex] && images[currentFrameIndex].complete) {
-                context.drawImage(images[currentFrameIndex], 0, 0);
-            }
-            currentFrameIndex = (currentFrameIndex + 1) % frameCount;
-            setTimeout(() => {
-                requestAnimationFrame(playAnimation);
-            }, 1000 / 24); // 24 FPS
-        }
-        
-        // Start playing once first image is loaded
-        const firstImg = images[0];
-        if(firstImg) {
-            firstImg.addEventListener('load', () => {
-                playAnimation();
-            });
-        } else {
-            setTimeout(playAnimation, 1000);
-        }
-
-
-        // Project Filtering Logic
+// Project Filtering Logic
         const techItems = document.querySelectorAll('.tech-item');
         const projectCards = document.querySelectorAll('.project-card');
 
