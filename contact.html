@@ -331,7 +331,10 @@
           url: 'https://general-runtime.voiceflow.com',
           voice: {
             url: "https://runtime-api.voiceflow.com"
-          }
+          },
+          autostart: false
+        }).then(() => {
+            window.voiceflow.chat.proactive.push({ type: 'text', payload: { message: 'Hi! I am Briz Patel\'s AI Assistant. How can I help you today?' } });
         });
       }
       v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
