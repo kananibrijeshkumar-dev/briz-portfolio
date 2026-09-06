@@ -295,58 +295,53 @@
         </footer>
     </main>
 
-    <script>
-        const canvas = document.getElementById("hero-canvas");
-        const context = canvas.getContext("2d");
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById("hero-canvas");
+            if (!canvas) return;
+            const context = canvas.getContext("2d");
+            const frameCount = 240;
+            
+            const currentFrame = index => (`video_frames_24fps/frame_${index.toString().padStart(4, '0')}.jpg`);
 
-        const frameCount = 240;
-        
-        // The frames are named frame_0001.jpg through frame_0240.jpg
-        const currentFrame = index => (
-            `video_frames_24fps/frame_${index.toString().padStart(4, '0')}.jpg`
-        );
-
-        // Preload all images to prevent flickering
-        const images = [];
-        let loadedCount = 0;
-        for (let i = 1; i <= frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            img.onload = () => {
+            const images = [];
+            let loadedCount = 0;
+            let firstImg = new Image();
+            firstImg.src = currentFrame(1);
+            
+            // Load frame 1 instantly so we have a background
+            firstImg.onload = () => {
+                canvas.width = firstImg.width;
+                canvas.height = firstImg.height;
+                context.drawImage(firstImg, 0, 0);
+                images[0] = firstImg;
                 loadedCount++;
-                // Wait for the first image to load to set the initial canvas dimensions and draw it
-                if(i === 1) {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    context.drawImage(img, 0, 0);
-                }
+                
+                // Wait for the rest of the page to load (images, fonts, css) before grabbing 64MB of frames
+                window.addEventListener('load', () => {
+                    // Lazy load the rest in the background
+                    for (let i = 2; i <= frameCount; i++) {
+                        const img = new Image();
+                        img.src = currentFrame(i);
+                        img.onload = () => { loadedCount++; };
+                        images[i-1] = img;
+                    }
+                    
+                    // Start animation loop
+                    let currentFrameIndex = 0;
+                    function playAnimation() {
+                        if (images[currentFrameIndex] && images[currentFrameIndex].complete) {
+                            context.drawImage(images[currentFrameIndex], 0, 0);
+                        }
+                        currentFrameIndex = (currentFrameIndex + 1) % frameCount;
+                        setTimeout(() => requestAnimationFrame(playAnimation), 1000 / 24);
+                    }
+                    
+                    setTimeout(playAnimation, 500); // Small delay to ensure smooth start
+                });
             };
-            images.push(img);
-        }
+        });
 
-        let lastFrameIndex = 0;
-
-        // Autoplay loop
-        let currentFrameIndex = 0;
-        function playAnimation() {
-            if (images[currentFrameIndex] && images[currentFrameIndex].complete) {
-                context.drawImage(images[currentFrameIndex], 0, 0);
-            }
-            currentFrameIndex = (currentFrameIndex + 1) % frameCount;
-            setTimeout(() => {
-                requestAnimationFrame(playAnimation);
-            }, 1000 / 24); // 24 FPS
-        }
-        
-        // Start playing once first image is loaded
-        const firstImg = images[0];
-        if(firstImg) {
-            firstImg.addEventListener('load', () => {
-                playAnimation();
-            });
-        } else {
-            setTimeout(playAnimation, 1000);
-        }
 
 
         // Project Filtering Logic
