@@ -120,7 +120,7 @@
         .hero h1 .outline { -webkit-text-stroke: 2px var(--primary); color: transparent; text-shadow: 0 0 40px rgba(255, 69, 0, 0.5); }
         .hero h2 { font-size: 2.5rem; font-weight: 600; font-family: var(--font-head); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
         .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 550px; line-height: 1.6; }
-        .hero-btns { display: flex; gap: 1rem; }
+        .hero-btns { display: flex; gap: 1rem; position: relative; z-index: 999; pointer-events: auto; }
 
         /* Social Sidebar */
         .social-sidebar { position: fixed; left: 2.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.5rem; z-index: 100; }
@@ -278,6 +278,39 @@
 <br><br><br><br>
 <!-- Projects Section -->
         <section id="projects" class="container">
+            
+            <div class="section-header text-center" style="text-align: center; margin-bottom: 2rem;">
+                <h4>My Arsenal</h4>
+                <h2>Tech Stack</h2>
+            </div>
+            
+            <div class="tech-grid" style="margin-bottom: 5rem;">
+                <div class="tech-item active" data-filter="all">
+                    <i class="ph ph-squares-four"></i>
+                    <span>All</span>
+                </div>
+                <div class="tech-item" data-filter="react">
+                    <i class="ph ph-atom"></i>
+                    <span>React</span>
+                </div>
+                <div class="tech-item" data-filter="node">
+                    <i class="ph ph-hexagon"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item" data-filter="js">
+                    <i class="ph ph-file-code"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item" data-filter="tailwind">
+                    <i class="ph ph-wind"></i>
+                    <span>Tailwind</span>
+                </div>
+                <div class="tech-item" data-filter="ai">
+                    <i class="ph ph-robot"></i>
+                    <span>AI Tools</span>
+                </div>
+            </div>
+
             <div class="projects-header-wrapper">
                 <div class="section-header" style="margin-bottom: 0;">
                     <h4>Projects</h4>
