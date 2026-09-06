@@ -245,8 +245,8 @@
 </head>
 <body>
     
-    <!-- Background Video Canvas -->
-    <canvas id="hero-canvas"></canvas>
+    <!-- Background Video -->
+    <video id="hero-canvas" src="background.mp4" autoplay loop muted playsinline></video>
     <div class="overlay"></div>
 
     <!-- Main Content -->
@@ -296,87 +296,7 @@
         </footer>
     </main>
 
-        <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const canvas = document.getElementById("hero-canvas");
-            if (!canvas) return;
-            const context = canvas.getContext("2d");
-            const frameCount = 240;
-            
-            const currentFrame = index => (`video_frames_24fps/frame_${index.toString().padStart(4, '0')}.jpg`);
-
-            const images = [];
-            let loadedCount = 0;
-            let firstImg = new Image();
-            firstImg.src = currentFrame(1);
-            
-            // Load frame 1 instantly so we have a background
-            firstImg.onload = () => {
-                canvas.width = firstImg.width;
-                canvas.height = firstImg.height;
-                context.drawImage(firstImg, 0, 0);
-                images[0] = firstImg;
-                loadedCount++;
-                
-                // Wait for the rest of the page to load (images, fonts, css) before grabbing 64MB of frames
-                window.addEventListener('load', () => {
-                    // Lazy load the rest in the background
-                    for (let i = 2; i <= frameCount; i++) {
-                        const img = new Image();
-                        img.src = currentFrame(i);
-                        img.onload = () => { loadedCount++; };
-                        images[i-1] = img;
-                    }
-                    
-                    // Start animation loop
-                    let currentFrameIndex = 0;
-                    function playAnimation() {
-                        if (images[currentFrameIndex] && images[currentFrameIndex].complete) {
-                            context.drawImage(images[currentFrameIndex], 0, 0);
-                        }
-                        currentFrameIndex = (currentFrameIndex + 1) % frameCount;
-                        setTimeout(() => requestAnimationFrame(playAnimation), 1000 / 24);
-                    }
-                    
-                    setTimeout(playAnimation, 500); // Small delay to ensure smooth start
-                });
-            };
-        });
-
-
-
-        // Project Filtering Logic
-        const techItems = document.querySelectorAll('.tech-item');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        techItems.forEach(item => {
-            item.addEventListener('click', () => {
-                // Remove active class from all
-                techItems.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked
-                item.classList.add('active');
-
-                const filter = item.getAttribute('data-filter');
-
-                // Smooth scroll to projects section
-                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-
-                // Filter projects
-                projectCards.forEach(card => {
-                    if (filter === 'all') {
-                        card.classList.remove('hide');
-                    } else {
-                        const cardTechs = card.getAttribute('data-tech').split(' ');
-                        if (cardTechs.includes(filter)) {
-                            card.classList.remove('hide');
-                        } else {
-                            card.classList.add('hide');
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+        
 
 <!-- Voiceflow Chatbot -->
 <script type="text/javascript">
