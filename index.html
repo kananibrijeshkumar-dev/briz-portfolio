@@ -203,11 +203,12 @@
         @media (max-width: 768px) {
             .nav-links { 
                 display: flex;
-                overflow-x: auto;
+                flex-wrap: wrap;
                 width: 100%;
-                justify-content: flex-start;
+                justify-content: center;
+                gap: 1rem;
                 padding-bottom: 0.5rem;
-                -webkit-overflow-scrolling: touch;
+                overflow-x: hidden;
             }
             nav .nav-inner {
                 flex-wrap: wrap;
@@ -640,9 +641,7 @@
                 });
                 
                 if (response.ok) {
-                    alert('Thanks! Your message has been sent directly to Briz Patel.');
-                    form.reset();
-                    button.innerHTML = originalText;
+                    form.innerHTML = '<div style="text-align: center; padding: 3rem 0; color: #fff;"><h4>Thank you!</h4><p style="margin-top: 1rem; color: #a1a1aa;">Your message has been sent successfully. I will get back to you soon.</p></div>';
                 } else {
                     alert('Oops! There was a problem submitting your form.');
                     button.innerHTML = originalText;
