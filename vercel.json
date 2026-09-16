@@ -9,5 +9,18 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.brizpatel.online"
+        }
+      ],
+      "destination": "https://brizpatel.online/$1",
+      "permanent": true
+    }
   ]
 }
