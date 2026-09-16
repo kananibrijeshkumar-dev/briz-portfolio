@@ -106,15 +106,15 @@
 
         
         /* Social Sidebar */
-        .social-sidebar { position: fixed; left: 2.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.5rem; z-index: 100; }
+        .social-sidebar { position: fixed; right: 2.5rem; left: auto; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.5rem; z-index: 100; }
         .social-sidebar a { color: var(--text-secondary); font-size: 1.5rem; transition: color 0.3s, transform 0.3s; }
-        .social-sidebar a:hover { color: var(--text-primary); transform: translateX(5px); }
+        .social-sidebar a:hover { color: var(--text-primary); transform: translateX(-5px); }
         .social-sidebar .whatsapp-icon { color: #25D366; }
         @media (max-width: 900px) { .social-sidebar { 
                 display: flex; 
                 flex-direction: column;
                 position: fixed;
-                left: 0.5rem;
+                right: 1rem; left: auto;
                 bottom: 2rem;
                 width: auto;
                 background: transparent;
