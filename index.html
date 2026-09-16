@@ -110,7 +110,25 @@
         .social-sidebar a { color: var(--text-secondary); font-size: 1.5rem; transition: color 0.3s, transform 0.3s; }
         .social-sidebar a:hover { color: var(--text-primary); transform: translateX(5px); }
         .social-sidebar .whatsapp-icon { color: #25D366; }
-        @media (max-width: 900px) { .social-sidebar { display: none; } }
+        @media (max-width: 900px) { .social-sidebar { 
+                display: flex; 
+                flex-direction: row; 
+                position: fixed; 
+                bottom: 0; 
+                left: 0; 
+                width: 100%; 
+                justify-content: center; 
+                background: rgba(10, 10, 10, 0.9); 
+                backdrop-filter: blur(10px);
+                z-index: 100; 
+                padding: 1rem 0; 
+                border-top: 1px solid var(--border-subtle);
+                border-right: none;
+                top: auto;
+                transform: none;
+                height: auto;
+            }
+            footer { padding-bottom: 5rem; } }
 
         /* Shared Section Styles */
         section { padding: 10rem 0; border-top: 1px solid var(--border-subtle); }
@@ -189,7 +207,18 @@
             .services-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            .nav-links { 
+                display: flex;
+                overflow-x: auto;
+                width: 100%;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
+                -webkit-overflow-scrolling: touch;
+            }
+            nav .nav-inner {
+                flex-wrap: wrap;
+            }
+            .nav-cta { display: none; }
             .hero-btns { flex-direction: column; width: 100%; }
             .form-row { flex-direction: column; gap: 0; }
             .process-timeline { flex-direction: column; gap: 2rem; padding: 0; margin-top: 3rem; }
@@ -470,7 +499,7 @@
                         <a href="tel:+918799036132" style="color: var(--text-primary); font-size: 1.2rem; text-decoration: none;">+91 8799036132</a>
                     </div>
                 </div>
-                <form class="contact-form reveal" action="https://formspree.io/f/xgavwnyn" method="POST">
+                <form class="contact-form reveal" id="portfolio-form" action="https://formspree.io/f/xgavwnyn" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Name" required>
@@ -485,36 +514,19 @@
                         </div>
                         <div class="form-group">
                             <select name="project_type" required>
-                                <option value="" disabled selected>Project Type</option>
-                                <option value="web-experience">Web Experience</option>
-                                <option value="web-app">Web Application</option>
-                                <option value="creative-dev">Creative Development</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <select name="budget" required>
-                                <option value="" disabled selected>Budget</option>
-                                <option value="small">< k</option>
-                                <option value="medium">k - k</option>
-                                <option value="large">k+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select name="timeline" required>
-                                <option value="" disabled selected>Timeline</option>
-                                <option value="1-month">< 1 Month</option>
-                                <option value="1-3-months">1 - 3 Months</option>
-                                <option value="3-months-plus">3+ Months</option>
+                                <option value="" disabled selected>Service Needed</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="WhatsApp Automation">WhatsApp Automation</option>
+                                <option value="AI & Business Automation">AI & Business Automation</option>
+                                <option value="Video Editing">Video Editing</option>
+                                <option value="UGC Content Creation">UGC Content Creation</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <textarea name="message" placeholder="Project Description" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Start a Project &rarr;</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message &rarr;</button>
                 </form>
             </div>
         </section>
@@ -614,6 +626,38 @@
           }
           v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
       })(document, "script");
+    </script>
+
+    <!-- AJAX Form Submission -->
+    <script>
+        document.getElementById('portfolio-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            const button = form.querySelector('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = 'Sending...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    alert('Thanks! Your message has been sent directly to Briz Patel.');
+                    form.reset();
+                    button.innerHTML = originalText;
+                } else {
+                    alert('Oops! There was a problem submitting your form.');
+                    button.innerHTML = originalText;
+                }
+            } catch (error) {
+                alert('Oops! There was a problem submitting your form.');
+                button.innerHTML = originalText;
+            }
+        });
     </script>
 </body>
 
