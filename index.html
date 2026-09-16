@@ -112,21 +112,15 @@
         .social-sidebar .whatsapp-icon { color: #25D366; }
         @media (max-width: 900px) { .social-sidebar { 
                 display: flex; 
-                flex-direction: row; 
-                position: fixed; 
-                bottom: 0; 
-                left: 0; 
-                width: 100%; 
-                justify-content: center; 
-                background: rgba(10, 10, 10, 0.9); 
-                backdrop-filter: blur(10px);
-                z-index: 100; 
-                padding: 1rem 0; 
-                border-top: 1px solid var(--border-subtle);
-                border-right: none;
-                top: auto;
-                transform: none;
-                height: auto;
+                flex-direction: column;
+                position: fixed;
+                left: 0.5rem;
+                bottom: 2rem;
+                width: auto;
+                background: transparent;
+                border: none;
+                backdrop-filter: none;
+                padding: 0;
             }
             footer { padding-bottom: 5rem; } }
 
@@ -267,7 +261,7 @@
 
             <div class="cursor-glow" id="cursor-glow"></div>
             <div class="container hero-content reveal">
-                <span class="hero-tag">Briz Patel</span>
+                
                 <h1>Creative Technologist &<br>Digital Experience Builder</h1>
                 
 
@@ -346,7 +340,7 @@
                     <div class="project-card reveal">
                         <div class="project-content">
                             <span class="project-num">05</span>
-                            <h3 class="project-title">Video Editing Reel</h3>
+                            <h3 class="project-title">Video Production Reel</h3>
                             <span class="project-cat">Media / Production</span>
                             <p class="project-desc">High-energy promotional video editing and cinematic reels optimized for social media engagement and brand storytelling.</p>
                             <div class="project-tech">
@@ -355,7 +349,7 @@
                             <a href="#contact" class="btn btn-outline">Inquire for Video Work &rarr;</a>
                         </div>
                         <div class="project-visual" style="overflow:hidden; padding:0;">
-                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop" alt="Video Editing Reel" style="width:100%; height:100%; object-fit:cover;">
+                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop" alt="Video Production Reel" style="width:100%; height:100%; object-fit:cover;">
                         </div>
                     </div>
 
@@ -387,7 +381,7 @@
                     </div>
                     <div class="service-card reveal">
                         <span class="service-num">04</span>
-                        <h3>Video Editing</h3>
+                        <h3>Video Production</h3>
                         <p>Professional short-form videos, reels, promotional content and social media videos.</p>
                     </div>
                     <div class="service-card reveal">
@@ -518,7 +512,7 @@
                                 <option value="Web Development">Web Development</option>
                                 <option value="WhatsApp Automation">WhatsApp Automation</option>
                                 <option value="AI & Business Automation">AI & Business Automation</option>
-                                <option value="Video Editing">Video Editing</option>
+                                <option value="Video Production">Video Production</option>
                                 <option value="UGC Content Creation">UGC Content Creation</option>
                             </select>
                         </div>
