@@ -230,30 +230,31 @@
     
         /* Sidebar WhatsApp Animation */
         .wa-sidebar-anim {
-            animation: wa-shake 4s infinite;
+            background-color: #25d366; color: #FFF; border-radius: 50%; width: 45px; height: 45px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); text-decoration: none;
+            animation: wa-bounce 2s infinite; margin-bottom: 1rem;
         }
         .wa-sidebar-anim:hover {
-            animation: none;
+            animation: none; transform: scale(1.1); transition: transform 0.2s ease;
         }
         .wa-bubble-sidebar {
-            position: absolute; right: 50px; top: 50%; transform: translateY(-50%) translateX(10px);
-            background: rgba(255,255,255,0.95); color: #000; padding: 0.8rem 1.2rem;
-            border-radius: 12px; font-size: 0.85rem; font-weight: 700; white-space: nowrap; opacity: 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); pointer-events: none; animation: wa-popup-right 12s infinite;
+            position: absolute; right: 55px; top: 50%; transform: translateY(-50%) translateX(10px);
+            background: rgba(255,255,255,0.95); color: #000; padding: 0.6rem 1rem;
+            border-radius: 12px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; opacity: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); pointer-events: none; animation: wa-popup-left 10s infinite;
             font-family: inherit;
         }
         .wa-sidebar-anim:hover .wa-bubble-sidebar {
             opacity: 1; transform: translateY(-50%) translateX(0); animation: none;
         }
         
-        @keyframes wa-shake {
-            0%, 85%, 100% { transform: rotate(0deg); }
-            88% { transform: rotate(-15deg); }
-            91% { transform: rotate(15deg); }
-            94% { transform: rotate(-15deg); }
-            97% { transform: rotate(15deg); }
+        @keyframes wa-bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-12px); }
+            60% { transform: translateY(-6px); }
         }
-        @keyframes wa-popup-right {
+        @keyframes wa-popup-left {
             0%, 80% { opacity: 0; transform: translateY(-50%) translateX(10px); }
             85%, 95% { opacity: 1; transform: translateY(-50%) translateX(0); }
             100% { opacity: 0; transform: translateY(-50%) translateX(10px); }
@@ -263,7 +264,11 @@
             to { opacity: 1; transform: scale(1); }
         }
         @media (max-width: 768px) {
-            .wa-bubble-sidebar { display: none; } /* Hide on mobile so it doesn't block content */
+            .wa-bubble-sidebar { 
+                white-space: normal; width: 140px; text-align: right; right: 45px; 
+                padding: 0.4rem 0.8rem; font-size: 0.75rem; 
+            }
+            .wa-sidebar-anim { width: 35px; height: 35px; font-size: 1.2rem; }
         }
 
     </style>
