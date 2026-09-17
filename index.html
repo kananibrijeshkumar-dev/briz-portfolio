@@ -77,10 +77,10 @@
         }
         .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.25rem; font-weight: 800; text-decoration: none; color: var(--text-primary); font-family: var(--font-head); }
-        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 1.15rem; font-weight: 800; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 800; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; white-space: nowrap; }
         .nav-links a:hover { color: var(--text-primary); }
-        .nav-cta { padding: 0.6rem 1.2rem; background: var(--text-primary); color: var(--bg-base); border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: transform 0.3s; }
+        .nav-cta { padding: 0.6rem 1.2rem; background: var(--text-primary); color: var(--bg-base); border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: transform 0.3s; white-space: nowrap; }
         .nav-cta:hover { transform: translateY(-2px); }
 
         /* Hero */
@@ -206,13 +206,16 @@
                 flex-wrap: wrap;
                 width: 100%;
                 justify-content: center;
-                gap: 1rem;
-                padding-bottom: 0.5rem;
-                overflow-x: hidden;
+                gap: 0.8rem;
+                padding-top: 1rem;
             }
+            .nav-links a { font-size: 0.8rem; }
             nav .nav-inner {
-                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: center;
             }
+            .logo { font-size: 1.8rem !important; }
+            .logo img { height: 40px !important; }
             .nav-cta { display: none; }
             .hero-btns { flex-direction: column; width: 100%; }
             .form-row { flex-direction: column; gap: 0; }
@@ -278,7 +281,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-inner">
-            <a href="#home" class="logo" style="display: flex; align-items: center; gap: 20px; font-weight: 800; font-size: 2.8rem; text-decoration: none; color: #fff; letter-spacing: 2px;"><img src="assets/images/briz_logo.jpg" alt="Briz Patel Logo" style="height: 65px; mix-blend-mode: screen; margin-top: -2px;">BRIZ PATEL</a>
+            <a href="#home" class="logo" style="display: flex; align-items: center; gap: 15px; font-weight: 800; font-size: 2.2rem; text-decoration: none; color: #fff; letter-spacing: 2px; white-space: nowrap;"><img src="assets/images/briz_logo.jpg" alt="Briz Patel Logo" style="height: 50px; mix-blend-mode: screen; margin-top: -2px;">BRIZ PATEL</a>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#services">Services</a></li>
